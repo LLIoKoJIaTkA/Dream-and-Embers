@@ -12,20 +12,35 @@ public class HeroMove : MonoBehaviour
     private bool isGrounded;
     private Rigidbody2D rb;
     private SpriteRenderer sprite;
+    private Animator anim;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
         rb.gravityScale = 3.0f;
         sprite = GetComponentInChildren<SpriteRenderer>();
     }
+
+    private States state
+    {
+        get { 
+            return (States)anim.GetInteger("state"); 
+        }
+        set { 
+            anim.SetInteger("state", (int)value);  
+        }
+    }
+
     private void FixedUpdate()
     {
-
+        if (!isGrounded) state = States.jump;
     }
 
     private void Update()
     {
+        if (isGrounded) state = States.idle;
+
         if (Input.GetButton("Horizontal"))
             Run();
         if (isGrounded && Input.GetButtonDown("Jump"))
@@ -34,6 +49,8 @@ public class HeroMove : MonoBehaviour
 
     private void Run()
     {
+        if (isGrounded) state = States.run;
+
         Vector3 dir = transform.right * Input.GetAxis("Horizontal");
         transform.position = Vector3.MoveTowards(transform.position, transform.position + dir, speed * Time.deltaTime);
         sprite.flipX = dir.x < 0.0f; // Для разворота перса, если он бежит в другую строну
@@ -58,4 +75,12 @@ public class HeroMove : MonoBehaviour
             isGrounded = false;
         }
     }
+
+    public enum States
+    {
+        idle,
+        run,   
+        jump
+    }
+
 }
