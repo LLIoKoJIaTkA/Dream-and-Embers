@@ -1,65 +1,60 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class HeroMove : MonoBehaviour
 {
-
-    [SerializeField] private float speed = 10.0f; // Скорость движения
-    //[SerializeField] private int lives = 5; // Кол-во жизней
-    [SerializeField] private float jumpForce = 15.0f; // Сила прыжка
+    [SerializeField] private float speed = 10.0f; 
+    [SerializeField] private float jumpForce = 15.0f; 
 
     private bool isGrounded;
+    private bool isFlip;
     private Rigidbody2D rb;
     private SpriteRenderer sprite;
     private Animator anim;
+    private Vector3 moveVec;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        rb.gravityScale = 3.0f;
         sprite = GetComponentInChildren<SpriteRenderer>();
     }
 
-    private States state
+
+
+
+    private void Update()
     {
-        get { 
-            return (States)anim.GetInteger("state"); 
-        }
-        set { 
-            anim.SetInteger("state", (int)value);  
-        }
+        UpdateAnimation();
     }
 
     private void FixedUpdate()
     {
-        if (!isGrounded) state = States.jump;
+        Run();
     }
 
-    private void Update()
-    {
-        if (isGrounded) state = States.idle;
-
-        if (Input.GetButton("Horizontal"))
-            Run();
-        if (isGrounded && Input.GetButtonDown("Jump"))
-            Jump();
-    }
-
-    private void Run()
-    {
-        if (isGrounded) state = States.run;
-
-        Vector3 dir = transform.right * Input.GetAxis("Horizontal");
-        transform.position = Vector3.MoveTowards(transform.position, transform.position + dir, speed * Time.deltaTime);
-        sprite.flipX = dir.x < 0.0f; // Для разворота перса, если он бежит в другую строну
-    }
+    #region Movement
 
     private void Jump()
     {
         rb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
     }
+    private void Run()
+    {
+        transform.position = Vector3.MoveTowards(transform.position, transform.position + moveVec, speed * Time.deltaTime);
+
+        if (isFlip) sprite.flipX = true;
+        else sprite.flipX = false;
+    }
+
+    #endregion Movement
+
+
+
+
+    #region TriggerCollider
 
     private void OnTriggerStay2D(Collider2D col) // Срабатывает, когда коллайдер ГГ находится внутри коллайдера Ground
     {
@@ -76,11 +71,51 @@ public class HeroMove : MonoBehaviour
         }
     }
 
+    #endregion TriggerCollider
+
+
+
+    #region InputSystem
+
+    public void OnMove(InputValue input)
+    {
+        Vector2 inputVec = input.Get<Vector2>();
+        moveVec = new Vector3(inputVec.x, 0, inputVec.y);
+        if (moveVec.x < 0.0f) isFlip = true;
+        if (moveVec.x > 0.0f) isFlip = false;
+    }
+
+    public void OnJump()
+    {
+        if (isGrounded)
+            Jump();
+    }
+
+    #endregion InputSystem
+
+
+
+    #region Animation
+
+    private void UpdateAnimation()
+    {
+        if (isGrounded) state = States.idle;
+        if (!isGrounded) state = States.jump;
+        if (isGrounded && moveVec != Vector3.zero) state = States.run;
+    }
+
     public enum States
     {
         idle,
-        run,   
+        run,
         jump
     }
 
+    private States state
+    {
+        get { return (States)anim.GetInteger("state"); }
+        set { anim.SetInteger("state", (int)value); }
+    }
+
+    #endregion Animation
 }
