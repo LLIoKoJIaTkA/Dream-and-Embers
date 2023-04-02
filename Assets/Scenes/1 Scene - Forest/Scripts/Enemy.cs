@@ -8,24 +8,24 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class Enemy : MonoBehaviour
 {
+    public float speed = 10.0f;
     private float speedMultiplier = 0.05f;
     [SerializeField] private const float fieldOfView = 10f;
     [SerializeField] private LayerMask heroMask;
 
-    public float speed = 10.0f;
     public Vector3[] positions;
-    public int[] rotations = { 1, 0, 1, 0, 0 };
-    private int currentTarget;
+    public int[] rotations = { 1, 0, 1 };
+    private int currentTarget = 0;
     private SpriteRenderer sprite;
     private bool isHeroViewed = false;
-
-    private GameObject hero = GameObject.FindGameObjectWithTag("Player");
+    private GameObject hero;
 
     private Animator animator;
     private string currentAnimation;
 
     public void Start()
     {
+        hero = GameObject.FindGameObjectWithTag("Player");
         animator = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
     }
@@ -40,14 +40,7 @@ public class Enemy : MonoBehaviour
             {
                 if (currentTarget < positions.Length - 1)
                 {
-                    if (rotations[currentTarget] == 1)
-                    {
-                        sprite.flipX = true;
-                    }
-                    else if (rotations[currentTarget] == 0)
-                    {
-                        sprite.flipX = false;
-                    }
+                    //sprite.flipX = rotations[currentTarget] == 1 ? true : false;
                     currentTarget++;
                 }
                 else
@@ -64,7 +57,10 @@ public class Enemy : MonoBehaviour
 
     public void Update()
     {
-        heroInFieldOfView();
+        if (!isHeroViewed)
+        {
+            heroInFieldOfView();
+        }
     }
 
     public void heroInFieldOfView()
