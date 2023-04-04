@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,20 +11,18 @@ public class HeroMove : MonoBehaviour
 
     private bool isGrounded;
     private bool isFlip;
-    private Rigidbody2D rb;
     private SpriteRenderer sprite;
     private Animator anim;
-    private Vector3 moveVec;
-
+    private Vector3 moveVec;    
+    private Rigidbody2D rb; 
+    public Vector2 position;
+    
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         sprite = GetComponentInChildren<SpriteRenderer>();
     }
-
-
-
 
     private void Update()
     {
@@ -33,12 +32,36 @@ public class HeroMove : MonoBehaviour
     private void FixedUpdate()
     {
         Run();
+        position.x = rb.position.x;
+        position.y = rb.position.y;
     }
+
+
+    #region InputSystem
+
+    public void OnMove(InputValue input)
+    {
+        Vector2 inputVec = input.Get<Vector2>();
+        moveVec = new Vector3(inputVec.x, 0, inputVec.y);
+        if (moveVec.x < 0.0f) isFlip = true;
+        if (moveVec.x > 0.0f) isFlip = false;
+    }
+
+    public void OnJump()
+    {
+        if (isGrounded)
+            Jump();
+    }
+
+    #endregion InputSystem
+
+
 
     #region Movement
 
     private void Jump()
     {
+        Debug.LogFormat("dfhd");
         rb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
     }
     private void Run()
@@ -50,7 +73,6 @@ public class HeroMove : MonoBehaviour
     }
 
     #endregion Movement
-
 
 
 
@@ -72,26 +94,6 @@ public class HeroMove : MonoBehaviour
     }
 
     #endregion TriggerCollider
-
-
-
-    #region InputSystem
-
-    public void OnMove(InputValue input)
-    {
-        Vector2 inputVec = input.Get<Vector2>();
-        moveVec = new Vector3(inputVec.x, 0, inputVec.y);
-        if (moveVec.x < 0.0f) isFlip = true;
-        if (moveVec.x > 0.0f) isFlip = false;
-    }
-
-    public void OnJump()
-    {
-        if (isGrounded)
-            Jump();
-    }
-
-    #endregion InputSystem
 
 
 

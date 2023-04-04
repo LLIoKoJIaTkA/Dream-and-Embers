@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class EnemyStats : MonoBehaviour
+public class InfoHero : MonoBehaviour
 {
     public float healthPoints = 74f;
     public float maxHP = 100f;
