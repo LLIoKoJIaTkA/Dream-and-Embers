@@ -10,7 +10,6 @@ public class Attack : MonoBehaviour
     [SerializeField] private HeroMove heroPosition;
     [SerializeField] private InfoHero heroStats;
     [SerializeField] private LayerMask enemies;
-    private EnemyStats enemyStats;
     private float timerAnimationOfAttack;
     private float timeFromAttack; 
 
@@ -24,14 +23,14 @@ public class Attack : MonoBehaviour
     {
         //if (Time.time > timeFromAttack + timerAnimationOfAttack)
         //{
-        //state = States.SimpleAttack; // Анимация
+        //state = States.SimpleAttack; // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         Collider2D[] damage = Physics2D.OverlapCircleAll(heroPosition.position, heroStats.attackRange, enemies);
         SimpleAttack(damage);
           //  timeFromAttack = Time.time;
         //}
 
          
-        // Один из этих методов Time.fixedTime/Time.frameCount        
+        // пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ Time.fixedTime/Time.frameCount        
     }                                                                                                               
 
 
@@ -48,19 +47,19 @@ public class Attack : MonoBehaviour
     
     private void Hit(Collider2D enemy)
     {
-        enemyStats = enemy.GetComponent<EnemyStats>();
-        enemyStats.healthPoints -= heroStats.damage;
-        if (enemyStats.healthPoints <= 0) 
-        {
-            // Анимация смерти
+        //enemyStats = enemy.GetComponent<EnemyStats>();
+        //enemyStats.healthPoints -= heroStats.damage;
+        //if (enemyStats.healthPoints <= 0)
+        //{
+            // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
             /*timeOfStartAnimDeath = Time.time;
             while (true)
             {
                 if (timeOfStartAnimDeath < Time.time + timeOfEndAnimDeath)
                     break;
             }*/
-            Destroy(enemy.gameObject); 
+        Destroy(enemy.gameObject); 
 
-        }
+        //}
     }
 }

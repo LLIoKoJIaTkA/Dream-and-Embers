@@ -78,14 +78,14 @@ public class HeroMove : MonoBehaviour
 
     #region TriggerCollider
 
-    private void OnTriggerStay2D(Collider2D col) // Срабатывает, когда коллайдер ГГ находится внутри коллайдера Ground
+    private void OnTriggerStay2D(Collider2D col) // РЎСЂР°Р±Р°С‚С‹РІР°РµС‚, РєРѕРіРґР° РєРѕР»Р»Р°Р№РґРµСЂ Р“Р“ РЅР°С…РѕРґРёС‚СЃСЏ РІРЅСѓС‚СЂРё РєРѕР»Р»Р°Р№РґРµСЂР° Ground
     {
         if (col.CompareTag("Ground"))
         {
             isGrounded = true;
         }
     }
-    private void OnTriggerExit2D(Collider2D col) // Срабатывает, когда коллайдер ГГ выходит из коллайдера Ground
+    private void OnTriggerExit2D(Collider2D col) // РЎСЂР°Р±Р°С‚С‹РІР°РµС‚, РєРѕРіРґР° РєРѕР»Р»Р°Р№РґРµСЂ Р“Р“ РІС‹С…РѕРґРёС‚ РёР· РєРѕР»Р»Р°Р№РґРµСЂР° Ground
     {
         if (col.CompareTag("Ground"))
         {
