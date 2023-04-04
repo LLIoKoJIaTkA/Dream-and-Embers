@@ -3621,7 +3621,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 10
+  orthographic size: 15
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -3661,11 +3661,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 115914989}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81d66d1615bf1874a93e9199f17d7be8, type: 3}
+  m_Script: {fileID: 11500000, guid: 454b2cbf865ba6c418f97b009bb1b684, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   targetTransform: {fileID: 1404649795}
-  offcet: {x: 0, y: 6, z: -10}
+  offcet: {x: 0, y: 11, z: -10}
   smoothing: 3
 --- !u!1 &119526483
 GameObject:
@@ -27914,7 +27914,7 @@ GameObject:
   m_Component:
   - component: {fileID: 892579815}
   - component: {fileID: 892579816}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Square
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -45240,7 +45240,7 @@ GameObject:
   - component: {fileID: 1404649799}
   - component: {fileID: 1404649800}
   - component: {fileID: 1404649801}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Hero
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -45364,15 +45364,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1404649791}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd2bcce812d20a148bbe72d9c5c8c4f9, type: 3}
+  m_Script: {fileID: 11500000, guid: 26b0a9c1481335342b6ff60d7b58c369, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthPoints: 74
-  maxHP: 100
-  damage: 25
-  attackRange: 3
-  armor: 5
-  speedAttack: 1
+  heroPosition: {fileID: 1404649796}
+  heroStats: {fileID: 1404649801}
+  enemies:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!95 &1404649800
 Animator:
   serializedVersion: 5
@@ -45402,14 +45401,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1404649791}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07d37c409de74e24e836f23158fa43b9, type: 3}
+  m_Script: {fileID: 11500000, guid: 8bd79f8a5ee40c24aada65b1856d6a67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heroPosition: {fileID: 1404649796}
-  heroStats: {fileID: 1404649799}
-  enemies:
-    serializedVersion: 2
-    m_Bits: 256
+  healthPoints: 74
+  maxHP: 100
+  damage: 25
+  attackRange: 10
+  armor: 5
+  speedAttack: 1
 --- !u!1 &1408119852
 GameObject:
   m_ObjectHideFlags: 0
@@ -54023,10 +54023,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1716792216}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40f0769cca2ddc04b967016f6531324e, type: 3}
+  m_Script: {fileID: 11500000, guid: c4f05d2dd7856604a91affb624a6f483, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hero: {fileID: 1404649799}
+  hero: {fileID: 1404649801}
   textHP: {fileID: 1716792218}
 --- !u!1 &1725205087
 GameObject:
@@ -54702,11 +54702,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1747684101}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04da02e0520d19842bf62e918da735cc, type: 3}
+  m_Script: {fileID: 11500000, guid: bf440221cf9420b42b1bdec08608c426, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 1747684103}
-  hero: {fileID: 1404649799}
+  hero: {fileID: 1404649801}
 --- !u!1 &1756902640
 GameObject:
   m_ObjectHideFlags: 0

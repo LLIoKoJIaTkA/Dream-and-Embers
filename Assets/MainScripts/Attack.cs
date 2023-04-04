@@ -22,13 +22,16 @@ public class Attack : MonoBehaviour
 
     public void OnSimpleAttack()
     {
-        //if (Time.time < timeFromAttack + timerAnimationOfAttack)
+        //if (Time.time > timeFromAttack + timerAnimationOfAttack)
         //{
         //state = States.SimpleAttack; // Анимация
         Collider2D[] damage = Physics2D.OverlapCircleAll(heroPosition.position, heroStats.attackRange, enemies);
         SimpleAttack(damage);
           //  timeFromAttack = Time.time;
         //}
+
+         
+        // Один из этих методов Time.fixedTime/Time.frameCount        
     }                                                                                                               
 
 
@@ -42,11 +45,22 @@ public class Attack : MonoBehaviour
             }
         }
     }
-
+    
     private void Hit(Collider2D enemy)
     {
         enemyStats = enemy.GetComponent<EnemyStats>();
         enemyStats.healthPoints -= heroStats.damage;
-        if (enemyStats.healthPoints <= 0) Destroy(enemy.gameObject);
+        if (enemyStats.healthPoints <= 0) 
+        {
+            // Анимация смерти
+            /*timeOfStartAnimDeath = Time.time;
+            while (true)
+            {
+                if (timeOfStartAnimDeath < Time.time + timeOfEndAnimDeath)
+                    break;
+            }*/
+            Destroy(enemy.gameObject); 
+
+        }
     }
 }
