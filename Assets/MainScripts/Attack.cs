@@ -49,7 +49,7 @@ public class Attack : MonoBehaviour
     private void Hit(Collider2D enemy)
     {
         enemyStats = enemy.GetComponent<EnemyStats>();
-        enemyStats.healthPoints -= heroStats.damage;
+        enemyStats.healthPoints -= heroStats.damage;        
         if (enemyStats.healthPoints <= 0) 
         {
             // Анимация смерти
