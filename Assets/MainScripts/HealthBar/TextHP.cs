@@ -8,6 +8,7 @@ public class TextHP : MonoBehaviour
 {
     [SerializeField] private InfoHero hero;
     [SerializeField] private Text textHP;
+
     void Start()
     {
         textHP = GetComponent<Text>();
@@ -15,8 +16,8 @@ public class TextHP : MonoBehaviour
         hero = FindObjectOfType<InfoHero>();
     }
 
-    void Update()
+    public void UpdateText()
     {
-        textHP.text =  hero.healthPoints <= hero.maxHP ? $"{hero.healthPoints}/{hero.maxHP}" : $" {hero.maxHP}/{hero.maxHP}"; //отдельным методом при получении урона
+        textHP.text =  hero.healthPoints <= hero.maxHP ? $"{hero.healthPoints}/{hero.maxHP}" : $"{hero.maxHP}/{hero.maxHP}"; 
     }
 }

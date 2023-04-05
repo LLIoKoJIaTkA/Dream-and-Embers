@@ -61,7 +61,6 @@ public class HeroMove : MonoBehaviour
 
     private void Jump()
     {
-        Debug.LogFormat("dfhd");
         rb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
     }
     private void Run()

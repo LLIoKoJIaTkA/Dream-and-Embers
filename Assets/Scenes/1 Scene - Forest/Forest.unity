@@ -45404,7 +45404,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bd79f8a5ee40c24aada65b1856d6a67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthPoints: 74
+  healthPoints: 20
   maxHP: 100
   damage: 25
   attackRange: 10
@@ -54707,6 +54707,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 1747684103}
   hero: {fileID: 1404649801}
+  healthText: {fileID: 1716792220}
 --- !u!1 &1756902640
 GameObject:
   m_ObjectHideFlags: 0

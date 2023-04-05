@@ -49,7 +49,7 @@ public class Attack : MonoBehaviour
     {
         //enemyStats = enemy.GetComponent<EnemyStats>();
         //enemyStats.healthPoints -= heroStats.damage;
-        //if (enemyStats.healthPoints <= 0)
+        //if (enemyStats.healthPoints <= 0) 
         //{
             // �������� ������
             /*timeOfStartAnimDeath = Time.time;
