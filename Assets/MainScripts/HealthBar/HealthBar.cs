@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
 {
-    [SerializeField] protected Image healthBar;
+    [SerializeField] private Image healthBar;
     [SerializeField] private InfoHero hero;
     [SerializeField] private TextHP healthText;
 
@@ -12,6 +12,11 @@ public class HealthBar : MonoBehaviour
         healthText = GetComponent<TextHP>();
         healthBar = GetComponent<Image>();
         hero = FindObjectOfType<InfoHero>();        
+    }
+
+    private void Start()
+    {
+        UpdateBar();
     }
 
     private void UpdateBar() // прикрепить  к атаке врагов

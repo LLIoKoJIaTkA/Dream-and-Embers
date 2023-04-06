@@ -3,17 +3,17 @@ using UnityEngine;
 
 namespace MainScripts.GameObject
 {
-    public class EnemyObjects : MainObject, IEnemyObjects
+    public class EnemyObjects : MainObject/*, IEnemyObjects*/
     {
         /// <summary>
         /// Множитель который позволяет резать скорость enemy
         /// </summary>
-        public float SpeedMultiplier = 0.05f;
+        private float SpeedMultiplier = 0.05f;
 
         /// <summary>
         /// Область видимости enemy
         /// </summary>
-        public float FieldOfView = 10f;
+        private float FieldOfView = 10f;
         
         /// <summary>
         /// Спройт enemy
@@ -44,6 +44,18 @@ namespace MainScripts.GameObject
         /// Определяет видит ли enemy hero
         /// </summary>
         private bool _isHeroViewed = false;
+
+        public virtual float speedMultiplier
+        {
+            get { return SpeedMultiplier; }
+            set { SpeedMultiplier = value; }
+        }
+
+        public virtual float fieldOfView
+        {
+            get { return FieldOfView; }
+            set { FieldOfView = value; }
+        }
 
         public void Start()
         {
@@ -91,9 +103,9 @@ namespace MainScripts.GameObject
         public bool MoveByPointsAndMonitoring()
         {
             transform.position = Vector3.MoveTowards(
-                transform.position, 
-                _positions[_currentTarget], 
-                Speed * SpeedMultiplier
+                transform.position,
+                _positions[_currentTarget],
+                speed * SpeedMultiplier
             );
 
             if (transform.position == _positions[_currentTarget])
@@ -116,6 +128,6 @@ namespace MainScripts.GameObject
 
             return false;
         }
-        
+
     }
 }

@@ -4,24 +4,71 @@ using UnityEngine;
 
 namespace MainScripts.GameObject
 {
-    public class MainObject : MonoBehaviour
+    public abstract class MainObject : MonoBehaviour
     {
-        public float HealthPoints = 100f;
+        private float MaxHp;
 
-        public float Speed = 10f;
-    
-        public float MaxHp = 100f;
-    
-        public float Damage = 25f;
-    
-        public float AttackRange = 10f;
-    
-        public float Armor = 5f;
+        private float HealthPoints;        
 
-        public float SpeedAttack = 1f;
+        private float Speed;    
+    
+        private float Damage;
+    
+        private float AttackRange;
+    
+        private float Armor;
 
-        public float HpRegeneration = 5f;
-        
+        private float SpeedAttack;
+
+        private float HpRegeneration;
+
+        public virtual float healthPoints
+        {
+            get { return HealthPoints; }
+            set { HealthPoints = value > MaxHp ? MaxHp : value; }
+        }
+
+        public virtual float speed
+        {
+            get { return Speed; }
+            set { Speed = value; }
+        }
+
+        public virtual float maxHP
+        {
+            get { return MaxHp; }
+            set { MaxHp = value; }
+        }
+
+        public virtual float damage
+        {
+            get { return Damage; }
+            set { Damage = value; }
+        }
+
+        public virtual float attackRange
+        {
+            get { return AttackRange; }
+            set { AttackRange = value; }
+        }
+
+        public virtual float armor
+        {
+            get { return Armor; }
+            set { Armor = value; }
+        }
+
+        public virtual float speedAttack
+        {
+            get { return SpeedAttack; }
+            set { SpeedAttack = value; }
+        }
+
+        public virtual float healthPointsRegeneration
+        {
+            get { return HpRegeneration; }
+            set { HpRegeneration = value; }
+        }
         /// <summary>
         /// Имхо у обьекта может быть 3 состояния
         /// </summary>

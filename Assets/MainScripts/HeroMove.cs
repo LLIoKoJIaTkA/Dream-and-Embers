@@ -10,12 +10,11 @@ public class HeroMove : MonoBehaviour
     [SerializeField] private float jumpForce = 15.0f; 
 
     private bool isGrounded;
-    private bool isFlip;
     private SpriteRenderer sprite;
     private Animator anim;
     private Vector3 moveVec;    
     private Rigidbody2D rb; 
-    public Vector2 position;
+    public bool isFlip;
     
     private void Awake()
     {
@@ -32,8 +31,6 @@ public class HeroMove : MonoBehaviour
     private void FixedUpdate()
     {
         Run();
-        position.x = rb.position.x;
-        position.y = rb.position.y;
     }
 
 
