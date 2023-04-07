@@ -3493,7 +3493,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 115914989}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1279d62f60b09843b9f081f3cfb4faa, type: 3}
+  m_Script: {fileID: 11500000, guid: 454b2cbf865ba6c418f97b009bb1b684, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   targetTransform: {fileID: 1404649795}
@@ -25433,6 +25433,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75ff659b33d66ab4ba2442c86fc78010, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthPoints: 74
+  maxHP: 100
+  damage: 25
+  attackRange: 10
+  armor: 5
+  speedAttack: 1
 --- !u!114 &1041323858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35889,6 +35895,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   jumpForce: 15
+  position: {x: 0, y: 0}
 --- !u!114 &1404649797
 MonoBehaviour:
   m_ObjectHideFlags: 0
