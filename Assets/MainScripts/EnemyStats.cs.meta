@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scenes/0 Scene - Village/Scripts/EnemyStats.cs.meta
+guid: 75ff659b33d66ab4ba2442c86fc78010
+========
+guid: 0854d52ddec6f86469e85f489381b0bf
+>>>>>>>> backup:Assets/MainScripts/EnemyStats.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

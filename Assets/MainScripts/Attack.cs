@@ -7,60 +7,54 @@ using UnityEngine.InputSystem;
 
 public class Attack : MonoBehaviour
 {
-    [SerializeField] private HeroMove heroPosition;
-    [SerializeField] private InfoHero heroStats;
-    [SerializeField] private LayerMask enemies;
-    private EnemyStats enemyStats;
-    private float timerAnimationOfAttack;
-    private float timeFromAttack; 
+    [SerializeField] private HeroMove _heroMove; 
+    [SerializeField] private InfoHero _heroStats;
+    [SerializeField] private LayerMask _enemies;
+    private Vector2 _damagePointPosition;
 
     void Start()
     {
-        heroPosition = GetComponent<HeroMove>();
-        heroStats = GetComponent<InfoHero>();
+        _heroStats = GetComponent<InfoHero>();
     }
 
     public void OnSimpleAttack()
     {
-        //if (Time.time > timeFromAttack + timerAnimationOfAttack)
-        //{
-        //state = States.SimpleAttack; // Анимация
-        Collider2D[] damage = Physics2D.OverlapCircleAll(heroPosition.position, heroStats.attackRange, enemies);
-        SimpleAttack(damage);
-          //  timeFromAttack = Time.time;
-        //}
+        Collider2D[] enemy;
 
-         
-        // Один из этих методов Time.fixedTime/Time.frameCount        
+        _damagePointPosition.y = FindFirstObjectByType<Transform>().position.y;        
+        _damagePointPosition.x = _heroMove.isFlip
+            ? FindFirstObjectByType<Transform>().position.x - 0.266f * 8f
+            : FindFirstObjectByType<Transform>().position.x;
+
+        enemy = Physics2D.OverlapCircleAll(_damagePointPosition, _heroStats.attackRange, _enemies);
+        SimpleAttack(enemy);
+        // need timer to attack, use : Time.fixedTime/Time.frameCount
     }                                                                                                               
 
 
-    public void SimpleAttack(Collider2D[] damage)
+    public void SimpleAttack(Collider2D[] enemy)
     {
-        for(int i = 0; i < damage.Length; i++)
+        for (int i = 0; i < enemy.Length; i++)
         {
-            if (damage[i].CompareTag("Enemy"))
-            {
-                Hit(damage[i]);
-            }
+            Hit(enemy[i]);            
         }
     }
     
     private void Hit(Collider2D enemy)
     {
-        enemyStats = enemy.GetComponent<EnemyStats>();
-        enemyStats.healthPoints -= heroStats.damage;        
-        if (enemyStats.healthPoints <= 0) 
+        Enemy enemyObj = enemy.gameObject.GetComponent<Enemy>();
+
+        enemyObj.healthPoints -= _heroStats.damage;
+        if (enemyObj.healthPoints <= 0)
         {
-            // Анимация смерти
-            /*timeOfStartAnimDeath = Time.time;
+            /*state = States.die;
+            timeOfStartAnimDeath = Time.fixedTime;
             while (true)
             {
-                if (timeOfStartAnimDeath < Time.time + timeOfEndAnimDeath)
+                if (timeOfStartAnimDeath < Time.time + timerTheAnimDeath)
                     break;
             }*/
-            Destroy(enemy.gameObject); 
-
-        }
+            Destroy(enemy.gameObject);
+        }               
     }
 }
