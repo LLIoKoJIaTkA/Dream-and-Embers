@@ -7,32 +7,26 @@ using UnityEngine.InputSystem;
 
 public class Attack : MonoBehaviour
 {
-    [SerializeField] private HeroMove heroMove; 
-    [SerializeField] private InfoHero heroStats;
-    [SerializeField] private LayerMask enemies;
-    private Vector2 damagePointPosition;
+    [SerializeField] private HeroMove _heroMove; 
+    [SerializeField] private InfoHero _heroStats;
+    [SerializeField] private LayerMask _enemies;
+    private Vector2 _damagePointPosition;
 
     void Start()
     {
-        heroStats = GetComponent<InfoHero>();
+        _heroStats = GetComponent<InfoHero>();
     }
 
     public void OnSimpleAttack()
     {
         Collider2D[] enemy;
-        damagePointPosition.y = FindFirstObjectByType<Transform>().position.y;
-        damagePointPosition.x = FindFirstObjectByType<Transform>().position.x;
-        if (!heroMove.isFlip)
-        {
-            Debug.Log(damagePointPosition + "isFlip: " + heroMove.isFlip);
-            enemy = Physics2D.OverlapCircleAll(damagePointPosition, heroStats.attackRange, enemies);
-        } 
-        else
-        {
-            damagePointPosition.x -= 0.266f * 8f; //Dies from kringe :(
-            Debug.Log(damagePointPosition + "isFlip: " + heroMove.isFlip);
-            enemy = Physics2D.OverlapCircleAll(damagePointPosition, heroStats.attackRange, enemies);
-        }
+
+        _damagePointPosition.y = FindFirstObjectByType<Transform>().position.y;        
+        _damagePointPosition.x = _heroMove.isFlip
+            ? FindFirstObjectByType<Transform>().position.x - 0.266f * 8f
+            : FindFirstObjectByType<Transform>().position.x;
+
+        enemy = Physics2D.OverlapCircleAll(_damagePointPosition, _heroStats.attackRange, _enemies);
         SimpleAttack(enemy);
         // need timer to attack, use : Time.fixedTime/Time.frameCount
     }                                                                                                               
@@ -40,9 +34,8 @@ public class Attack : MonoBehaviour
 
     public void SimpleAttack(Collider2D[] enemy)
     {
-        for(int i = 0; i < enemy.Length; i++)
+        for (int i = 0; i < enemy.Length; i++)
         {
-            Debug.Log("egdsg");
             Hit(enemy[i]);            
         }
     }
@@ -50,8 +43,9 @@ public class Attack : MonoBehaviour
     private void Hit(Collider2D enemy)
     {
         Enemy enemyObj = enemy.gameObject.GetComponent<Enemy>();
-        enemyObj.healthPoints -= heroStats.damage;
-        if(enemyObj.healthPoints <= 0)
+
+        enemyObj.healthPoints -= _heroStats.damage;
+        if (enemyObj.healthPoints <= 0)
         {
             /*state = States.die;
             timeOfStartAnimDeath = Time.fixedTime;

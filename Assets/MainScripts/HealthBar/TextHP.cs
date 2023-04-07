@@ -18,7 +18,6 @@ public class TextHP : MonoBehaviour
 
     public void UpdateText()
     {
-        //textHP.text =  hero.healthPoints <= hero.maxHP ? $"{hero.healthPoints}/{hero.maxHP}" : $"{hero.maxHP}/{hero.maxHP}"; 
-        textHP.text = "wag";
+        textHP.text =  hero.healthPoints <= hero.maxHP ? $"{hero.healthPoints}/{hero.maxHP}" : $"{hero.maxHP}/{hero.maxHP}"; 
     }
 }

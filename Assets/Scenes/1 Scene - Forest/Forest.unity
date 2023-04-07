@@ -45603,11 +45603,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26b0a9c1481335342b6ff60d7b58c369, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heroMove: {fileID: 1404649796}
-  heroStats: {fileID: 1404649801}
-  enemies:
+  _heroMove: {fileID: 0}
+  _heroStats: {fileID: 0}
+  _enemies:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 0
 --- !u!95 &1404649800
 Animator:
   serializedVersion: 5
