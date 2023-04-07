@@ -1,7 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="20354011-5a93-4be8-8def-4534ad4131cb" name="Changes" comment="Пытаюсь спасти ситуацию" />
+    <list default="true" id="20354011-5a93-4be8-8def-4534ad4131cb" name="Changes" comment="Добавил карту Егыча">
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/0 Scene - Village/Scripts/Enemy.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/0 Scene - Village/Scripts/Enemy.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/0 Scene - Village/Scripts/EnemyStats.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/0 Scene - Village/Scripts/EnemyStats.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/1 Scene - Forest/ForestByYG4.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/1 Scene - Forest/Palete/Forest.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/1 Scene - Forest/Palete/ground.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/1 Scene - Forest/Palete/ground.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/1 Scene - Forest/Palete/ground_black.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/1 Scene - Forest/Palete/ground_black.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/1 Scene - Forest/Palete/ground_left.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/1 Scene - Forest/Palete/ground_left.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/1 Scene - Forest/Palete/ground_right.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/1 Scene - Forest/Palete/ground_right.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/1 Scene - Forest/Palete/ground_rotate_left.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/1 Scene - Forest/Palete/ground_rotate_left.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/1 Scene - Forest/Palete/ground_rotate_right.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/1 Scene - Forest/Palete/ground_rotate_right.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/1 Scene - Forest/Texture/1667281097_3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/1 Scene - Forest/Texture/1667281097_3.jpg.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/1 Scene - Forest/Texture/Background.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/1 Scene - Forest/Texture/Background.jpg.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/1 Scene - Forest/Texture/SET1_Main_bckgrdlev_build.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/1 Scene - Forest/Texture/SET1_Main_bckgrdlev_build.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/1 Scene - Forest/Texture/SET1_Mainlev_build.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/1 Scene - Forest/Texture/SET1_Mainlev_build.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/1 Scene - Forest/Texture/SET1_background_obj.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/1 Scene - Forest/Texture/SET1_background_obj.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/1 Scene - Forest/Texture/SET1_bakcground_day1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/1 Scene - Forest/Texture/SET1_bakcground_day1.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/1 Scene - Forest/Texture/SET1_bakcground_day2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/1 Scene - Forest/Texture/SET1_bakcground_day2.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/1 Scene - Forest/Texture/SET1_bakcground_day3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/1 Scene - Forest/Texture/SET1_bakcground_day3.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/1 Scene - Forest/Texture/SET1_bakcground_night1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/1 Scene - Forest/Texture/SET1_bakcground_night1.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/1 Scene - Forest/Texture/SET1_bakcground_night2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/1 Scene - Forest/Texture/SET1_bakcground_night2.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/1 Scene - Forest/Texture/SET1_bakcground_night3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/1 Scene - Forest/Texture/SET1_bakcground_night3.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/1 Scene - Forest/Texture/SET1_decorative_obj.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/1 Scene - Forest/Texture/SET1_decorative_obj.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/1 Scene - Forest/Texture/ground.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/1 Scene - Forest/Texture/ground.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/1 Scene - Forest/Texture/ground_left.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/1 Scene - Forest/Texture/ground_left.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/1 Scene - Forest/Texture/ground_right.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/1 Scene - Forest/Texture/ground_right.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/1 Scene - Forest/Texture/parebr.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/1 Scene - Forest/Texture/parebr.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/1 Scene - Forest/Texture/stones.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/1 Scene - Forest/Texture/stones.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/1 Scene - Forest/Texture/village.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/1 Scene - Forest/Texture/village.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/0 Scene - Village.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/0 Scene - Village.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/0 Scene - Village/Animations.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/0 Scene - Village/Animations.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/0 Scene - Village/Cutscenes.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/0 Scene - Village/Cutscenes.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/0 Scene - Village/Textures/Tileset/EnvironsGround.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/0 Scene - Village/Textures/Tileset/EnvironsGround.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/1 Scene - Forest/Animations.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/1 Scene - Forest/Palete.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/1 Scene - Forest/Cutscenes.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/1 Scene - Forest/Texture.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/1 Scene - Forest/Forest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/0 Scene - Village/Forest.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/1 Scene - Forest/Forest.unity.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/0 Scene - Village/Forest.unity.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/1 Scene - Forest/Scripts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/1 Scene - Forest/ForestByYG4.unity.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/1 Scene - Forest/Scripts/Enemy.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/1 Scene - Forest/Scripts/Enemy.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/1 Scene - Forest/Scripts/EnemyStats.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/1 Scene - Forest/Scripts/EnemyStats.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/1 Scene - Forest/Textures.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/1 Scene - Forest/Palete/Forest.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/1 Scene - Forest/Textures/Enemy/Fire vizard/Animation/Run.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/1 Scene - Forest/Textures/Enemy/Fire vizard/Animation/Run.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/1 Scene - Forest/Textures/Enemy/Fire vizard/Animation/Run.anim.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/1 Scene - Forest/Textures/Enemy/Fire vizard/Animation/Run.anim.meta" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,29 +90,29 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4014a86cbefb4944b2b6c9211c8fd2fc159a00/6a/31866c99/MonoBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/MainScripts/Attack.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://D:/projects/Dream-and-Embers/Assets/MainScripts/Attack.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/projects/Dream-and-Embers/Assets/MainScripts/EnemyStats.cs.meta" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/projects/Dream-and-Embers/Assets/MainScripts/EnemyStats.cs.meta" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/MainScripts/EnemyStats.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/projects/Dream-and-Embers/Assets/Scenes/0 Scene - Village.meta" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/projects/Dream-and-Embers/Assets/Scenes/0 Scene - Village.meta" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/projects/Dream-and-Embers/Assets/Scenes/0 Scene - Village/Animations.meta" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/projects/Dream-and-Embers/Assets/Scenes/0 Scene - Village/Animations.meta" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/projects/Dream-and-Embers/Assets/Scenes/0 Scene - Village/Cutscenes.meta" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/projects/Dream-and-Embers/Assets/Scenes/0 Scene - Village/Cutscenes.meta" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/projects/Dream-and-Embers/Assets/Scenes/0 Scene - Village/Scripts.meta" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/projects/Dream-and-Embers/Assets/Scenes/0 Scene - Village/Scripts.meta" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://D:/projects/Dream-and-Embers/Assets/Scenes/0 Scene - Village/Scripts/Enemy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://D:/projects/Dream-and-Embers/Assets/Scenes/0 Scene - Village/Scripts/Enemy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://D:/projects/Dream-and-Embers/Assets/Scenes/0 Scene - Village/Scripts/Enemy.cs.meta" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://D:/projects/Dream-and-Embers/Assets/Scenes/0 Scene - Village/Scripts/Enemy.cs.meta" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/projects/Dream-and-Embers/Assets/Scenes/0 Scene - Village/Scripts/Enemy.meta" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/projects/Dream-and-Embers/Assets/Scenes/0 Scene - Village/Scripts/Enemy.meta" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/projects/Dream-and-Embers/Assets/Scenes/0 Scene - Village/Scripts/Enemy/Enemy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/projects/Dream-and-Embers/Assets/Scenes/0 Scene - Village/Scripts/Enemy/Enemy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://D:/projects/Dream-and-Embers/Assets/Scenes/0 Scene - Village/Scripts/Enemy/Enemy.cs.meta" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://D:/projects/Dream-and-Embers/Assets/Scenes/0 Scene - Village/Scripts/Enemy/Enemy.cs.meta" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://D:/projects/Dream-and-Embers/Assets/Scenes/0 Scene - Village/Scripts/EnemyStats.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://D:/projects/Dream-and-Embers/Assets/Scenes/0 Scene - Village/Scripts/EnemyStats.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://D:/projects/Dream-and-Embers/Assets/Scenes/0 Scene - Village/Scripts/EnemyStats.cs.meta" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://D:/projects/Dream-and-Embers/Assets/Scenes/0 Scene - Village/Scripts/EnemyStats.cs.meta" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/projects/Dream-and-Embers/Assets/Scenes/0 Scene - Village/Textures/Enemy/Fire vizard/Animation/Run.anim" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/projects/Dream-and-Embers/Assets/Scenes/0 Scene - Village/Textures/Enemy/Fire vizard/Animation/Run.anim" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/projects/Dream-and-Embers/Assets/Scenes/0 Scene - Village/Textures/Enemy/Fire vizard/Animation/Run.anim.meta" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/projects/Dream-and-Embers/Assets/Scenes/0 Scene - Village/Textures/Enemy/Fire vizard/Animation/Run.anim.meta" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/projects/Dream-and-Embers/Assets/Scenes/1 Scene - Forest/Forest.unity" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/projects/Dream-and-Embers/Assets/Scenes/1 Scene - Forest/Forest.unity" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/projects/Dream-and-Embers/Assets/Scenes/0 Scene - Village/Scripts/ShowEducation.cs.meta" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/projects/Dream-and-Embers/Assets/Scenes/0 Scene - Village/Scripts/ShowEducation.cs.meta" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/projects/Dream-and-Embers/Assets/Scenes/0 Scene - Village/Textures/Tileset/EnvironsGround.prefab" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/projects/Dream-and-Embers/Assets/Scenes/0 Scene - Village/Textures/Tileset/EnvironsGround.prefab" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Tests/Runtime/EventSystem/InputModuleTests/FakeBaseInput.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.visualscripting@1.8.0/Editor/VisualScripting.State/Transitions/StateTransitionWidget.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -55,23 +125,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Discover.Launch.Via.Unity": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Discover.Launch.Via.Unity&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "C:\\Users\\Артем\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\DecompilerCache",
-      "C:\\Users\\Артем\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\SourcesCache",
-      "C:\\Users\\Артем\\AppData\\Local\\Symbols\\src"
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;C:\\Users\\Артем\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\Артем\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\Артем\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="D:\code\unity\2021.3.18f1\Editor\Unity.exe" />
@@ -155,6 +225,7 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Перенес немного логики в общие class-ы" />
     <MESSAGE value="Пытаюсь спасти ситуацию" />
-    <option name="LAST_COMMIT_MESSAGE" value="Пытаюсь спасти ситуацию" />
+    <MESSAGE value="Добавил карту Егыча" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавил карту Егыча" />
   </component>
 </project>
