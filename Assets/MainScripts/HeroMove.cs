@@ -14,7 +14,7 @@ public class HeroMove : MonoBehaviour
     private Animator anim;
     private Vector3 moveVec;    
     private Rigidbody2D rb; 
-    public bool isFlip;
+    [HideInInspector] public bool isFlip;
     
     private void Awake()
     {

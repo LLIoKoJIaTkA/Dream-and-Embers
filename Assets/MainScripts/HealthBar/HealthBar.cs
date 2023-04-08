@@ -5,11 +5,11 @@ public class HealthBar : MonoBehaviour
 {
     [SerializeField] private Image healthBar;
     [SerializeField] private InfoHero hero;
-    [SerializeField] private TextHP healthText;
+    private TextHP healthText;
 
     void Awake()
     {
-        healthText = GetComponent<TextHP>();
+        healthText = FindFirstObjectByType<TextHP>();
         healthBar = GetComponent<Image>();
         hero = FindObjectOfType<InfoHero>();        
     }
