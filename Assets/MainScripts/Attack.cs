@@ -10,6 +10,7 @@ public class Attack : MonoBehaviour
     [SerializeField] private HeroMove _heroMove; 
     [SerializeField] private InfoHero _heroStats;
     [SerializeField] private LayerMask _enemies;
+    [SerializeField] private Transform _damagePoint;
     private Vector2 _damagePointPosition;
 
     void Start()
@@ -21,10 +22,10 @@ public class Attack : MonoBehaviour
     {
         Collider2D[] enemy;
 
-        _damagePointPosition.y = FindFirstObjectByType<Transform>().position.y;        
+        _damagePointPosition.y = _damagePoint.position.y;        
         _damagePointPosition.x = _heroMove.isFlip
-            ? FindFirstObjectByType<Transform>().position.x - 0.266f * 8f
-            : FindFirstObjectByType<Transform>().position.x;
+            ? _damagePoint.position.x - 0.266f * 8f
+            : _damagePoint.position.x;
 
         enemy = Physics2D.OverlapCircleAll(_damagePointPosition, _heroStats.attackRange, _enemies);
         SimpleAttack(enemy);
@@ -36,7 +37,7 @@ public class Attack : MonoBehaviour
     {
         for (int i = 0; i < enemy.Length; i++)
         {
-            Hit(enemy[i]);            
+            Hit(enemy[i]);
         }
     }
     
