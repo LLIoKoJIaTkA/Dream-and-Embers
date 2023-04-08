@@ -1,27 +1,31 @@
+using MainScripts.Stats;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HealthBar : MonoBehaviour
+namespace MainScripts.HealthBar
 {
-    [SerializeField] private Image healthBar;
-    [SerializeField] private InfoHero hero;
-    private TextHP healthText;
-
-    void Awake()
+    public class HealthBar : MonoBehaviour
     {
-        healthText = FindFirstObjectByType<TextHP>();
-        healthBar = GetComponent<Image>();
-        hero = FindObjectOfType<InfoHero>();        
-    }
+        [SerializeField] private Image healthBar;
+        [SerializeField] private HeroStats hero;
+        private TextHP healthText;
 
-    private void Start()
-    {
-        UpdateBar();
-    }
+        void Awake()
+        {
+            healthText = FindFirstObjectByType<TextHP>();
+            healthBar = GetComponent<Image>();
+            hero = FindObjectOfType<HeroStats>();        
+        }
 
-    private void UpdateBar() // прикрепить  к атаке врагов
-    {
-        healthBar.fillAmount = hero.healthPoints / hero.maxHP; //отдельным методом при получении урона
-        healthText.UpdateText();
+        private void Start()
+        {
+            UpdateBar();
+        }
+
+        private void UpdateBar() // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ  пїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
+        {
+            healthBar.fillAmount = hero.healthPoints / hero.maxHP; //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
+            healthText.UpdateText();
+        }
     }
 }
