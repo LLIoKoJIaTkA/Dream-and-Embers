@@ -1,23 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
+using MainScripts.Stats;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TextHP : MonoBehaviour
+namespace MainScripts.HealthBar
 {
-    [SerializeField] private InfoHero hero;
-    [SerializeField] private Text textHP;
-
-    void Start()
+    public class TextHP : MonoBehaviour
     {
-        textHP = GetComponent<Text>();
-        textHP.color = Color.white;
-        hero = FindObjectOfType<InfoHero>();
-    }
+        [SerializeField] private HeroStats hero;
+        [SerializeField] private Text textHP;
 
-    public void UpdateText()
-    {
-        textHP.text =  hero.healthPoints <= hero.maxHP ? $"{hero.healthPoints}/{hero.maxHP}" : $"{hero.maxHP}/{hero.maxHP}"; 
+        void Start()
+        {
+            textHP = GetComponent<Text>();
+            textHP.color = Color.white;
+            hero = FindObjectOfType<HeroStats>();
+        }
+
+        public void UpdateText()
+        {
+            textHP.text =  hero.healthPoints <= hero.maxHP ? $"{hero.healthPoints}/{hero.maxHP}" : $"{hero.maxHP}/{hero.maxHP}"; 
+        }
     }
 }

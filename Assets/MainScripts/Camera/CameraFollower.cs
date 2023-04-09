@@ -1,23 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraFollower : MonoBehaviour
+namespace MainScripts.Camera
 {
-    [SerializeField] private Transform targetTransform;
-    [SerializeField] private Vector3 offcet;
-    [SerializeField] private float smoothing = 3f;
-
-
-    // Update is called once per frame
-    void FixedUpdate()
+    public class CameraFollower : MonoBehaviour
     {
-        Move();
-    }
+        [SerializeField] private Transform targetTransform;
+        [SerializeField] private Vector3 offcet;
+        [SerializeField] private float smoothing = 3f;
 
-    private void Move()
-    {
-        var nextPosition = Vector3.Lerp(transform.position, targetTransform.position + offcet, Time.fixedDeltaTime * smoothing);
-        transform.position = nextPosition;
+
+        // Update is called once per frame
+        void FixedUpdate()
+        {
+            Move();
+        }
+
+        private void Move()
+        {
+            var nextPosition = Vector3.Lerp(transform.position, targetTransform.position + offcet, Time.fixedDeltaTime * smoothing);
+            transform.position = nextPosition;
+        }
     }
 }
