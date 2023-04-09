@@ -15,7 +15,6 @@ namespace MainScripts.Move
         private bool isNeedStopJump = false;
         private float startPointJump;
         
-    
         private void Awake()
         {
             rb = GetComponent<Rigidbody2D>();
@@ -60,7 +59,6 @@ namespace MainScripts.Move
         #endregion InputSystem
 
 
-
         #region Movement
 
         private void stopJump()
@@ -84,7 +82,6 @@ namespace MainScripts.Move
         #endregion Movement
 
 
-
         #region TriggerCollider
 
         private void OnTriggerStay2D(Collider2D col) // Срабатывает, когда коллайдер ГГ находится внутри коллайдера Ground
@@ -94,6 +91,7 @@ namespace MainScripts.Move
                 isGrounded = true;
             }
         }
+
         private void OnTriggerExit2D(Collider2D col) // Срабатывает, когда коллайдер ГГ выходит из коллайдера Ground
         {
             if (col.CompareTag("Ground"))
@@ -103,7 +101,6 @@ namespace MainScripts.Move
         }
 
         #endregion TriggerCollider
-
 
 
         #region Animation

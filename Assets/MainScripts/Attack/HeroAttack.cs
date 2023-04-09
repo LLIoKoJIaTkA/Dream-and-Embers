@@ -24,7 +24,6 @@ namespace MainScripts.Attack
             // need timer to attack, use : Time.fixedTime/Time.frameCount
         }
 
-
         public void SimpleAttack(Collider2D[] enemy)
         {
             for (int i = 0; i < enemy.Length; i++)
