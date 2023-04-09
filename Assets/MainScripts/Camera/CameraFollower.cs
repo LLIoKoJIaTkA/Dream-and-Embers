@@ -7,9 +7,7 @@ namespace MainScripts.Camera
         [SerializeField] private Transform targetTransform;
         [SerializeField] private Vector3 offcet;
         [SerializeField] private float smoothing = 3f;
-
-
-        // Update is called once per frame
+        
         void FixedUpdate()
         {
             Move();

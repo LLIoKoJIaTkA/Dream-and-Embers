@@ -1,20 +1,19 @@
+using MainScripts.Stats;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace MainScripts.Move
 {
-    public class HeroMove : MonoBehaviour
+    public class HeroMove : HeroStats
     {
-        [SerializeField] private float speed = 10.0f; 
-        [SerializeField] private float jumpForce = 15.0f; 
-
-        private bool isGrounded;
         private SpriteRenderer sprite;
         private Animator anim;
         private Vector3 moveVec;    
         private Rigidbody2D rb; 
-        [HideInInspector] public bool isFlip;
-    
+        private bool isGrounded;
+        protected bool isFlip;
+        private float startPointJump;
+        
         private void Awake()
         {
             rb = GetComponent<Rigidbody2D>();
@@ -29,6 +28,8 @@ namespace MainScripts.Move
 
         private void FixedUpdate()
         {
+            if (rb.position.y >= startPointJump + jumpUpSize)
+                StopJump();
             Run();
         }
 
@@ -44,31 +45,42 @@ namespace MainScripts.Move
         }
 
         public void OnJump()
-        {
+        {            
             if (isGrounded)
+            {
+                startPointJump = rb.position.y;
                 Jump();
+            }                
         }
 
         #endregion InputSystem
 
 
-
         #region Movement
+
+        private void StopJump()
+        {
+            rb.AddForce(transform.up * (-jumpForce / 4), ForceMode2D.Impulse);
+        }
 
         private void Jump()
         {
             rb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
         }
+
         private void Run()
         {
-            transform.position = Vector3.MoveTowards(transform.position, transform.position + moveVec, speed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(
+                transform.position, 
+                transform.position + moveVec, 
+                speed * Time.deltaTime
+            );
 
             if (isFlip) sprite.flipX = true;
             else sprite.flipX = false;
         }
 
         #endregion Movement
-
 
 
         #region TriggerCollider
@@ -80,6 +92,7 @@ namespace MainScripts.Move
                 isGrounded = true;
             }
         }
+
         private void OnTriggerExit2D(Collider2D col) // Срабатывает, когда коллайдер ГГ выходит из коллайдера Ground
         {
             if (col.CompareTag("Ground"))
@@ -89,7 +102,6 @@ namespace MainScripts.Move
         }
 
         #endregion TriggerCollider
-
 
 
         #region Animation

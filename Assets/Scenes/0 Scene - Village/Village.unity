@@ -8991,7 +8991,7 @@ Transform:
   m_Children:
   - {fileID: 1781165291}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &296696726
 MonoBehaviour:
@@ -9005,14 +9005,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 288515ed8564bdb47988ce2b46b40b1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 100
-  healthPoints: 100
-  speed: 1
-  damage: 10
-  speedAttack: 3
-  healthPointsRegeneration: 10
-  speedMultiplier: 0.05
-  fieldOfView: 10
+  HealthPoint: 100
+  Speed: 10
+  SpeedMultiplier: 0.05
+  FieldOfView: 10
+  _heroMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!61 &296696727
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -18302,37 +18301,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &739207328
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 739207329}
-  m_Layer: 8
-  m_Name: Enemy
-  m_TagString: Enemy
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &739207329
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 739207328}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 25.762217, y: -5.93, z: 0.1963157}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &741102853
 GameObject:
   m_ObjectHideFlags: 0
@@ -19953,7 +19921,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4f05d2dd7856604a91affb624a6f483, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hero: {fileID: 1404649799}
+  hero: {fileID: 1404649802}
   textHP: {fileID: 810325664}
 --- !u!1 &811280096
 GameObject:
@@ -36127,9 +36095,9 @@ GameObject:
   - component: {fileID: 1404649793}
   - component: {fileID: 1404649798}
   - component: {fileID: 1404649797}
+  - component: {fileID: 1404649802}
   - component: {fileID: 1404649796}
-  - component: {fileID: 1404649799}
-  - component: {fileID: 1404649800}
+  - component: {fileID: 1404649801}
   m_Layer: 7
   m_Name: Hero
   m_TagString: Player
@@ -36152,7 +36120,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 3
+  m_GravityScale: 6
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -36213,9 +36181,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6370778e11262d34cbbd2ee62d34d5ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  jumpForce: 15
-  isFlip: 0
 --- !u!114 &1404649797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36266,25 +36231,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
---- !u!114 &1404649799
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1404649791}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8bd79f8a5ee40c24aada65b1856d6a67, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthPoints: 74
-  maxHP: 100
-  damage: 25
-  attackRange: 1.417
-  armor: 5
-  speedAttack: 1
---- !u!114 &1404649800
+--- !u!114 &1404649801
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -36296,12 +36243,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26b0a9c1481335342b6ff60d7b58c369, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _heroMove: {fileID: 1404649796}
-  _heroStats: {fileID: 1404649799}
   _enemies:
     serializedVersion: 2
     m_Bits: 256
   _damagePoint: {fileID: 345643309}
+--- !u!114 &1404649802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1404649791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bd79f8a5ee40c24aada65b1856d6a67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1408268396
 GameObject:
   m_ObjectHideFlags: 0
@@ -49605,7 +49562,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 1947829588}
-  hero: {fileID: 1404649799}
+  hero: {fileID: 1404649802}
 --- !u!1 &1950159980
 GameObject:
   m_ObjectHideFlags: 0
