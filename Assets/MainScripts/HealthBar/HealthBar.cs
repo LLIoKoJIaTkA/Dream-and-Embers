@@ -12,9 +12,9 @@ namespace MainScripts.HealthBar
 
         void Awake()
         {
-            healthText = FindFirstObjectByType<TextHP>();
             healthBar = GetComponent<Image>();
-            hero = FindObjectOfType<HeroStats>();        
+            healthText = FindObjectOfType<TextHP>();
+            hero = FindObjectOfType<HeroStats>();            
         }
 
         private void Start()
@@ -22,9 +22,9 @@ namespace MainScripts.HealthBar
             UpdateBar();
         }
 
-        private void UpdateBar() // ����������  � ����� ������
+        private void UpdateBar()
         {
-            healthBar.fillAmount = hero.healthPoints / hero.maxHP; //��������� ������� ��� ��������� �����
+            healthBar.fillAmount = hero.healthPoints / hero.maxHealthPoints;
             healthText.UpdateText();
         }
     }
