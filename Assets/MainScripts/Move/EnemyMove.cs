@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace MainScripts.Move
 {
-    public sealed class EnemyObjects : MonoBehaviour
+    public class EnemyMove : MonoBehaviour
     {
         /// <summary>
         /// Спройт enemy
