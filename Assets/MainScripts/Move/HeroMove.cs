@@ -12,7 +12,6 @@ namespace MainScripts.Move
         private Rigidbody2D rb; 
         private bool isGrounded;
         protected bool isFlip;
-        private bool isNeedStopJump = false;
         private float startPointJump;
         
         private void Awake()
@@ -29,8 +28,8 @@ namespace MainScripts.Move
 
         private void FixedUpdate()
         {
-            if ( (rb.position.y >= startPointJump + jumpUpSize) && (isNeedStopJump) )
-                stopJump();
+            if (rb.position.y >= startPointJump + jumpUpSize)
+                StopJump();
             Run();
         }
 
@@ -46,12 +45,10 @@ namespace MainScripts.Move
         }
 
         public void OnJump()
-        {
-            
+        {            
             if (isGrounded)
             {
                 startPointJump = rb.position.y;
-                isNeedStopJump = true;
                 Jump();
             }                
         }
@@ -61,7 +58,7 @@ namespace MainScripts.Move
 
         #region Movement
 
-        private void stopJump()
+        private void StopJump()
         {
             rb.AddForce(transform.up * (-jumpForce / 4), ForceMode2D.Impulse);
         }
@@ -73,7 +70,11 @@ namespace MainScripts.Move
 
         private void Run()
         {
-            transform.position = Vector3.MoveTowards(transform.position, transform.position + moveVec, speed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(
+                transform.position, 
+                transform.position + moveVec, 
+                speed * Time.deltaTime
+            );
 
             if (isFlip) sprite.flipX = true;
             else sprite.flipX = false;

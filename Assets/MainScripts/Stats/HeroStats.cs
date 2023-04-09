@@ -15,113 +15,61 @@ namespace MainScripts.Stats
         private float _jumpUpSize = 4.5f;
         private float _speed = 7f;
         private float _jumpForce = 13f;
+
         public float healthPoints
         {
-            get 
-            { 
-                return _healthPoints; 
-            }
-            set 
-            { 
-                if (value > _maxHealthPoints) _healthPoints = _maxHealthPoints;
-                else  _healthPoints = value;
-            }
+            get => _healthPoints;
+            set => healthPoints = value > maxHealthPoints 
+                ? _healthPoints = _maxHealthPoints 
+                : _healthPoints = value;            
         }
 
         public float maxHealthPoints
         {
-            get
-            {
-                return _maxHealthPoints;
-            }
-            set
-            {
-                _maxHealthPoints = value;
-            }
+            get => _maxHealthPoints;            
+            set => _maxHealthPoints = value;
         }
 
         public float damage
         {
-            get
-            {
-                return _damage;
-            }
-            set
-            {
-                _damage = value;
-            }
+            get => _damage;
+            set => _damage = value;
         }
 
         public float attackRange
         {
-            get
-            {
-                return _attackRange;
-            }
-            set
-            {
-                _attackRange = value;
-            }
+            get => _attackRange; 
+            set => _attackRange = value;
         }
 
         public float armor
         {
-            get
-            {
-                return _armor;
-            }
-            set
-            {
-                _armor = value;
-            }
+            get => _armor; 
+            set => _armor = value;
         }
 
         public float speedAttack
         {
-            get
-            {
-                return _speedAttack;
-            }
-            set
-            {
-                _speedAttack = value;
-            }
+            get => _speedAttack; 
+            set => _speedAttack = value;
         }
 
         public float speed
         {
-            get
-            {
-                return _speed;
-            }
-            set
-            {
-                _speed = value;
-            }
+            get => _speed; 
+            set => _speed = value;
         }
 
         public float jumpForce
         {
-            get
-            {
-                return _jumpForce;
-            }
-            set
-            {
-                _jumpForce = value;
-            }
+            get => _jumpForce; 
+            set => _jumpForce = value;
         }
 
         public float jumpUpSize
         {
-            get
-            {
-                return _jumpUpSize;
-            }
-            set
-            {
-                _jumpUpSize = value;
-            }
+            get => _jumpUpSize; 
+            set => _jumpUpSize = value;
         }
     }
 }

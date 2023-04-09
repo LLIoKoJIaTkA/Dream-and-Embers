@@ -12,14 +12,12 @@ namespace MainScripts.Attack
 
         public void OnSimpleAttack()
         {
-            Collider2D[] enemy;
-
             _damagePointPosition.y = _damagePoint.position.y;
             _damagePointPosition.x = isFlip
                 ? _damagePoint.position.x - 0.266f * 8f
                 : _damagePoint.position.x;
 
-            enemy = Physics2D.OverlapCircleAll(_damagePointPosition, attackRange, _enemies);
+            Collider2D[] enemy = Physics2D.OverlapCircleAll(_damagePointPosition, attackRange, _enemies);
             SimpleAttack(enemy);
             // need timer to attack, use : Time.fixedTime/Time.frameCount
         }
