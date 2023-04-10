@@ -1,10 +1,8 @@
 using MainScripts.Animation;
-using System.Runtime.ExceptionServices;
-using UnityEngine;
 
 namespace MainScripts.Stats
 {
-    public class HeroStats : MonoBehaviour
+    public class HeroStats : MainAnimator
     {
         private float _healthPoints = 100f;
         private float _maxHealthPoints = 100f;

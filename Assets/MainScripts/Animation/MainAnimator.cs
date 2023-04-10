@@ -1,12 +1,20 @@
+using UnityEngine;
 using System;
 using System.ComponentModel;
-using UnityEngine;
+using MainScripts.Stats;
 
 namespace MainScripts.Animation
 {
-    public abstract class MainAnimator : MonoBehaviour
+    public class MainAnimator : MonoBehaviour
     {
-        public enum States { Walk, Run, Jump }
+        private Animator _animator;
+
+        private void Start()
+        {
+            _animator = FindObjectOfType<HeroStats>().gameObject.GetComponent<Animator>();
+        }
+
+        public enum States { Idle, Run, Jump, Attack, Walk }
 
         public States StateAnimation
         {
@@ -18,13 +26,5 @@ namespace MainScripts.Animation
                 _animator.SetInteger("state", (int)value);
             }
         }
-        
-        private Animator _animator;
-
-        private void Awake()
-        {
-            _animator = GetComponent<Animator>();
-        }
-    }
-    
+    }    
 }
