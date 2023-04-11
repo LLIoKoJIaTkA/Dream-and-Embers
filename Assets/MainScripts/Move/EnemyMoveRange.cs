@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace MainScripts.Move
 {
-    public class EnemyMove : MonoBehaviour
+    public class EnemyMoveRange : EnemyStatsRange
     {
         /// <summary>
         /// Спройт enemy
@@ -20,8 +20,6 @@ namespace MainScripts.Move
         /// </summary>
         private bool _isHeroViewed = false;
 
-        private EnemyStats _enemyStats;
-        
         /// <summary>
         /// Массив векторов из 3-х точек(x,y,z) по которым, мониторит enemy.
         /// </summary>
@@ -31,7 +29,7 @@ namespace MainScripts.Move
         {
             _sprite = GetComponent<SpriteRenderer>();
         }
-
+        
         public void FixedUpdate()
         {
             MoveByPointsAndMonitoring();
@@ -78,6 +76,7 @@ namespace MainScripts.Move
                 }
             }
         }
+
 
     }
 }

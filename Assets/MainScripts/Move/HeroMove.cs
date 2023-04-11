@@ -30,8 +30,8 @@ namespace MainScripts.Move
                 StopJump();
             Run();
         }
-
-
+        
+        
         #region InputSystem
 
         public void OnMove(InputValue input)
