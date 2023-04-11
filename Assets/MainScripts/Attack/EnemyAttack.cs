@@ -1,8 +1,9 @@
+using MainScripts.Move;
 using UnityEngine;
 
 namespace MainScripts.Attack
 {
-    public class EnemyAttack: MonoBehaviour
+    public class EnemyAttack: EnemyMove
     {
         public void Attack()
         {

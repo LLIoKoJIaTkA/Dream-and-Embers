@@ -37,8 +37,8 @@ namespace MainScripts.Attack
         {
             EnemyStats enemyObj = enemy.gameObject.GetComponent<EnemyStats>();
 
-            enemyObj.HealthPoint -= damage;
-            if (enemyObj.HealthPoint <= 0)
+            enemyObj.healthPoint -= damage;
+            if (enemyObj.healthPoint <= 0)
             {
                 /*state = States.die;
             timeOfStartAnimDeath = Time.fixedTime;

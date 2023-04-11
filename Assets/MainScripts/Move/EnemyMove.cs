@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace MainScripts.Move
 {
-    public class EnemyMoveRange : EnemyStatsRange
+    public class EnemyMove : EnemyStats
     {
         /// <summary>
         /// Спройт enemy
@@ -28,6 +28,25 @@ namespace MainScripts.Move
         public void Start()
         {
             _sprite = GetComponent<SpriteRenderer>();
+            if (isWalkingTheDefaultPathByPoints)
+            {
+                Vector3 currentPosition = transform.position;
+                _setPointByCurrentPosition(currentPosition);
+            }
+        }
+
+        private void _setPointByCurrentPosition(Vector3 currentPosition)
+        {
+            _positions[0] = currentPosition;
+            Vector3 leftPointByCenter, rightPointByCenter;
+            leftPointByCenter.x = currentPosition.x - 10;
+            leftPointByCenter.y = currentPosition.y;
+            leftPointByCenter.z = currentPosition.z;
+            rightPointByCenter.x = currentPosition.x + 10;
+            rightPointByCenter.y = currentPosition.y;
+            rightPointByCenter.z = currentPosition.z;
+            _positions[1] = leftPointByCenter;
+            _positions[2] = rightPointByCenter;
         }
         
         public void FixedUpdate()
@@ -39,8 +58,8 @@ namespace MainScripts.Move
         {
             Collider2D[] filedOfViewEnemy = Physics2D.OverlapCircleAll(
                 transform.position, 
-                _enemyStats.FieldOfView, 
-                _enemyStats._heroMask
+                fieldOfView, 
+                heroMask
             );
             
             for (int i = 0; i< filedOfViewEnemy.Length; i++)
@@ -54,9 +73,9 @@ namespace MainScripts.Move
             return false;
         }
 
-        public void MoveByPointsAndMonitoring()
+        private void MoveByPointsAndMonitoring()
         {
-            var finalSpeed = _enemyStats.Speed * _enemyStats.SpeedMultiplier;
+            var finalSpeed = speed * speedMultiplier;
             transform.position = Vector3.MoveTowards(
                 transform.position,
                 _positions[_currentTarget],
@@ -76,7 +95,6 @@ namespace MainScripts.Move
                 }
             }
         }
-
-
+        
     }
 }
