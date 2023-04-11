@@ -7,7 +7,6 @@ namespace MainScripts.Move
     public class HeroMove : HeroStats
     {
         private SpriteRenderer sprite;
-        private Animator anim;
         private Vector3 moveVec;    
         private Rigidbody2D rb; 
         private bool isGrounded;
@@ -17,7 +16,6 @@ namespace MainScripts.Move
         private void Awake()
         {
             rb = GetComponent<Rigidbody2D>();
-            anim = GetComponent<Animator>();
             sprite = GetComponentInChildren<SpriteRenderer>();
         }
 
@@ -108,22 +106,9 @@ namespace MainScripts.Move
 
         private void UpdateAnimation()
         {
-            if (isGrounded) state = States.idle;
-            if (!isGrounded) state = States.jump;
-            if (isGrounded && moveVec != Vector3.zero) state = States.run;
-        }
-
-        public enum States
-        {
-            idle,
-            run,
-            jump
-        }
-
-        private States state
-        {
-            get { return (States)anim.GetInteger("state"); }
-            set { anim.SetInteger("state", (int)value); }
+            if (isGrounded) StateAnimation = States.Idle;
+            if (!isGrounded) StateAnimation = States.Jump;
+            if (isGrounded && moveVec != Vector3.zero) StateAnimation = States.Run;
         }
 
         #endregion Animation
