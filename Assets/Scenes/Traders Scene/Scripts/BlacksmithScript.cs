@@ -16,7 +16,7 @@ public class BlacksmithScript : MonoBehaviour
     private void OnTriggerStay2D()
     {
         workIsActive = true;
-        if(Input.GetKey(KeyCode.F))
+        if(Input.GetKey(KeyCode.E))
         {
             IterationWindow.SetActive(true);
             Time.timeScale = 0;     //freeze time, when hero use blacksmith menu
