@@ -21,7 +21,7 @@ public class BlacksmithScript : MonoBehaviour
         }    
     }
 
-    private void Update()
+    void Update()
     {
         if (_IsWorkActive)
         {
