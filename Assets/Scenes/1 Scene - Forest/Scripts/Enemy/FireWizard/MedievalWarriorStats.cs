@@ -1,8 +1,8 @@
-using MainScripts.Move;
+using MainScripts.Stats;
 
 namespace Scenes._1_Scene___Forest.Scripts.Enemy.FireWizard
 {
-    public class FireWizardMove : EnemyMove
+    public class MedievalWarriorStats : EnemyStats
     {
         
     }

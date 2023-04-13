@@ -1,34 +1,43 @@
+using System.Collections;
+using MainScripts.Animation;
 using MainScripts.Stats;
+using Scenes._1_Scene___Forest.Scripts.Enemy.FireWizard;
 using UnityEngine;
 
 namespace MainScripts.Move
 {
-    public class EnemyMove : EnemyStats
+    public class EnemyMove : MonoBehaviour
     {
         /// <summary>
         /// Спройт enemy
         /// </summary>
-        private SpriteRenderer _sprite;
+        [SerializeField] protected SpriteRenderer _sprite;
 
         /// <summary>
         /// Текущее положение enemy, по индексу
         /// </summary>
-        private int _currentTarget = 0;
+        protected int _currentTarget = 0;
         
         /// <summary>
         /// Определяет видит ли enemy hero
         /// </summary>
-        private bool _isHeroViewed = false;
+        protected bool _isHeroViewed = false;
 
         /// <summary>
         /// Массив векторов из 3-х точек(x,y,z) по которым, мониторит enemy.
         /// </summary>
-        [SerializeField] private Vector3[] _positions;
-        
+        [SerializeField] protected Vector3[] _positions;
+
+        private EnemyStats _enemyStats;
+        private MedievalWarriorAnimation _medievalWarriorAnimation;
+
         public void Start()
         {
+            _enemyStats = GetComponent<EnemyStats>();
             _sprite = GetComponent<SpriteRenderer>();
-            if (isWalkingTheDefaultPathByPoints)
+            _medievalWarriorAnimation = GetComponent<MedievalWarriorAnimation>();
+
+            if (_enemyStats.isWalkingTheDefaultPathByPoints)
             {
                 Vector3 currentPosition = transform.position;
                 _setPointByCurrentPosition(currentPosition);
@@ -51,31 +60,32 @@ namespace MainScripts.Move
         
         public void FixedUpdate()
         {
-            MoveByPointsAndMonitoring();
+            MoveByPoints();
         }
 
-        public bool HeroFallIntoTheFieldOfView()
+        public void HeroFallIntoTheFieldOfView()
         {
             Collider2D[] filedOfViewEnemy = Physics2D.OverlapCircleAll(
                 transform.position, 
-                fieldOfView, 
-                heroMask
+                _enemyStats.fieldOfView, 
+                _enemyStats.heroMask
             );
             
             for (int i = 0; i< filedOfViewEnemy.Length; i++)
             {
                 if(filedOfViewEnemy[i].CompareTag("Player"))
                 {
-                    return true;
+                    _medievalWarriorAnimation.ChangeAnimation(MainAnimator.States.Run);
                 }
             }
 
-            return false;
+            _medievalWarriorAnimation.ChangeAnimation(MainAnimator.States.Walk);
         }
 
-        private void MoveByPointsAndMonitoring()
+        // ReSharper disable Unity.PerformanceAnalysis
+        private void MoveByPoints()
         {
-            var finalSpeed = speed * speedMultiplier;
+            float finalSpeed = _enemyStats.speed * _enemyStats.speedMultiplier;
             transform.position = Vector3.MoveTowards(
                 transform.position,
                 _positions[_currentTarget],
@@ -86,7 +96,12 @@ namespace MainScripts.Move
             {
                 if (_currentTarget < _positions.Length - 1)
                 {
-                    // TO DO Придумать нормальный разворот
+                    if (_enemyStats.isStayInPoint)
+                    {
+                        //TO DO придумать логику остановки на точках
+                    }
+                    
+                    _sprite.flipX = _getFlipForMoveByPoints(transform.position, _positions[_currentTarget + 1]);
                     _currentTarget++;
                 }
                 else
@@ -94,7 +109,18 @@ namespace MainScripts.Move
                     _currentTarget = 0;
                 }
             }
+            
         }
         
+        /// <summary>
+        /// Этот метод для поворота можно использовать только для ходьбы по точкам
+        /// Тут все просто, если текущее положение меньше следующей точки, значит двигается вправо
+        /// И нужно flipX поставить false, иначе true
+        /// </summary>
+        private bool _getFlipForMoveByPoints(Vector3 currentPosition, Vector3 nextPoint)
+        {
+            return !(currentPosition.x <= nextPoint.x);
+        }
+
     }
 }

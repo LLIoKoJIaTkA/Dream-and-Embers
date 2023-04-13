@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace MainScripts.Attack
 {
-    public class EnemyAttack: EnemyMove
+    public class EnemyAttack: MonoBehaviour
     {
         public void Attack()
         {
