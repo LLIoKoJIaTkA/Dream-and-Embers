@@ -1,8 +1,9 @@
-using System.Collections;
+using System;
 using MainScripts.Animation;
 using MainScripts.Stats;
 using Scenes._1_Scene___Forest.Scripts.Enemy.FireWizard;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace MainScripts.Move
 {
@@ -36,6 +37,7 @@ namespace MainScripts.Move
             _enemyStats = GetComponent<EnemyStats>();
             _sprite = GetComponent<SpriteRenderer>();
             _medievalWarriorAnimation = GetComponent<MedievalWarriorAnimation>();
+            _positions = new Vector3[_enemyStats.countPoints];
 
             if (_enemyStats.isWalkingTheDefaultPathByPoints)
             {
@@ -46,16 +48,10 @@ namespace MainScripts.Move
 
         private void _setPointByCurrentPosition(Vector3 currentPosition)
         {
-            _positions[0] = currentPosition;
-            Vector3 leftPointByCenter, rightPointByCenter;
-            leftPointByCenter.x = currentPosition.x - 10;
-            leftPointByCenter.y = currentPosition.y;
-            leftPointByCenter.z = currentPosition.z;
-            rightPointByCenter.x = currentPosition.x + 10;
-            rightPointByCenter.y = currentPosition.y;
-            rightPointByCenter.z = currentPosition.z;
-            _positions[1] = leftPointByCenter;
-            _positions[2] = rightPointByCenter;
+            for (int i = 0; i < _enemyStats.countPoints; i++)
+            {
+                _positions[i].Set(currentPosition.x + Random.Range(8, 20), currentPosition.y, currentPosition.z);
+            }
         }
         
         public void FixedUpdate()
@@ -71,9 +67,9 @@ namespace MainScripts.Move
                 _enemyStats.heroMask
             );
             
-            for (int i = 0; i< filedOfViewEnemy.Length; i++)
+            foreach (Collider2D element in filedOfViewEnemy)
             {
-                if(filedOfViewEnemy[i].CompareTag("Player"))
+                if(element.CompareTag("Player"))
                 {
                     _medievalWarriorAnimation.ChangeAnimation(MainAnimator.States.Run);
                 }
@@ -85,6 +81,7 @@ namespace MainScripts.Move
         // ReSharper disable Unity.PerformanceAnalysis
         private void MoveByPoints()
         {
+            _checkFieldOfViewOnWall();
             float finalSpeed = _enemyStats.speed * _enemyStats.speedMultiplier;
             transform.position = Vector3.MoveTowards(
                 transform.position,
@@ -96,13 +93,8 @@ namespace MainScripts.Move
             {
                 if (_currentTarget < _positions.Length - 1)
                 {
-                    if (_enemyStats.isStayInPoint)
-                    {
-                        //TO DO придумать логику остановки на точках
-                    }
-                    
-                    _sprite.flipX = _getFlipForMoveByPoints(transform.position, _positions[_currentTarget + 1]);
                     _currentTarget++;
+                    _sprite.flipX = _getFlipForMoveByPoints(transform.position, _positions[_currentTarget]);
                 }
                 else
                 {
@@ -119,8 +111,26 @@ namespace MainScripts.Move
         /// </summary>
         private bool _getFlipForMoveByPoints(Vector3 currentPosition, Vector3 nextPoint)
         {
-            return !(currentPosition.x <= nextPoint.x);
+            return !(currentPosition.x <= nextPoint.x - 6);//КОСТЫЛь)))
         }
 
+        private void _checkFieldOfViewOnWall()
+        {
+            Collider2D[] filedOfViewWall = Physics2D.OverlapCircleAll(
+                transform.position, 
+                _enemyStats.fieldOfView, 
+                _enemyStats.wallMask
+            );
+            
+            foreach (Collider2D element in filedOfViewWall)
+            {
+                Debug.Log(element);
+                if(element.CompareTag("Wall"))
+                {
+                    Debug.Log(element);
+                }
+            }
+        }
+        
     }
 }

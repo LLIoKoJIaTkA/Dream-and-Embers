@@ -33,6 +33,11 @@ namespace MainScripts.Stats
         /// Маска чтобы, enemy при виде hero агрился, для этого нужно повесить Layer на hero
         /// </summary>
         public LayerMask heroMask;
+        
+        /// <summary>
+        /// Маска чтобы, enemy при виде wall искал точки чтобы уйти от стены
+        /// </summary>
+        public LayerMask wallMask;
 
         /// <summary>
         /// Урон наносимый противником
@@ -53,10 +58,21 @@ namespace MainScripts.Stats
         /// <summary>
         /// Флаг который укзывает, будет ли enemy ходить по дефолтному пути, или надо будет задавать точки
         /// </summary>
-        public bool isWalkingTheDefaultPathByPoints = false;
+        public bool isWalkingTheDefaultPathByPoints = true;
 
+        /// <summary>
+        /// Количество точек
+        /// </summary>
+        public int countPoints = 3;
+
+        /// <summary>
+        /// Флаг который указывает, будет ли останавливаться Enemy на точках
+        /// </summary>
         public bool isStayInPoint = true;
         
+        /// <summary>
+        /// Время остановки на точках
+        /// </summary>
         public float timeStayInPoint = 5f;
     }
 }
