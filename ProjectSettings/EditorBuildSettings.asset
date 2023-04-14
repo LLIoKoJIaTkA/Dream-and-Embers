@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/0 Scene - Village/Village.unity
     guid: adcf609492028604e8f832a6338f3522
+  - enabled: 1
+    path: Assets/Scenes/Traders Scene/Traders Location Scene.unity
+    guid: d70a6fa30ed8cc64d960bb1732bd9f38
+  - enabled: 1
+    path: Assets/Scenes/1 Scene - Forest/ForestByYG4.unity
+    guid: ffc21d411af8122498b97a1d7146c570
   m_configObjects: {}
