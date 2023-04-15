@@ -12,6 +12,7 @@ namespace MainScripts.Move
         private bool isGrounded;
         protected bool isFlip;
         private float startPointJump;
+        protected bool isAttack = false;
         
         private void Awake()
         {
@@ -105,10 +106,11 @@ namespace MainScripts.Move
         #region Animation
 
         private void UpdateAnimation()
-        {
-            if (isGrounded) StateAnimation = States.Idle;
-            if (!isGrounded) StateAnimation = States.Jump;
-            if (isGrounded && moveVec != Vector3.zero) StateAnimation = States.Run;
+        {         
+            if (isGrounded && !isAttack) StateAnimation = States.Idle;
+            else if (!isGrounded && !isAttack) StateAnimation = States.Jump;
+            else if (isGrounded && !isAttack && moveVec != Vector3.zero) StateAnimation = States.Run;
+            else if (isGrounded && isAttack) StateAnimation = States.Attack;
         }
 
         #endregion Animation
