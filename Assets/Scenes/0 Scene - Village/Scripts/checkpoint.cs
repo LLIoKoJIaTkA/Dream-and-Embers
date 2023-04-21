@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Сheckpoint : MonoBehaviour
+public class Checkpoint : MonoBehaviour
 {
     public Transform heroPosition;
     public int CheckPointIndex;

@@ -10870,8 +10870,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e37ae296a9d977a46837eabf06e4cdcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1404649795}
-  index: 1
+  heroPosition: {fileID: 1404649795}
+  CheckPointIndex: 1
 --- !u!1 &388767194
 GameObject:
   m_ObjectHideFlags: 0
@@ -27888,8 +27888,8 @@ GameObject:
   - component: {fileID: 1093627017}
   - component: {fileID: 1093627020}
   - component: {fileID: 1093627019}
-  - component: {fileID: 1093627018}
   - component: {fileID: 1093627021}
+  - component: {fileID: 1093627022}
   m_Layer: 0
   m_Name: checkpoint2
   m_TagString: Untagged
@@ -27912,20 +27912,6 @@ Transform:
   m_Father: {fileID: 2099018671}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1093627018
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1093627016}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e37ae296a9d977a46837eabf06e4cdcc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1404649795}
-  index: 2
 --- !u!61 &1093627019
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -28017,6 +28003,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BonfireWindow: {fileID: 413193854}
+--- !u!114 &1093627022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093627016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e37ae296a9d977a46837eabf06e4cdcc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heroPosition: {fileID: 1404649795}
+  CheckPointIndex: 2
 --- !u!1 &1093999240
 GameObject:
   m_ObjectHideFlags: 0
