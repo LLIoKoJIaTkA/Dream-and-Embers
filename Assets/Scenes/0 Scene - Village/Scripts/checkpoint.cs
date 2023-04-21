@@ -6,6 +6,16 @@ public class checkpoint : MonoBehaviour
 {
     public Transform player;
     public int index;
+    
+    private void Start() 
+    {
+        player = GameObject.Find("Hero").transform;
+        DataContainer.checkpointIndex = PlayerPrefs.GetInt("checkpointIDX");
+        if (DataContainer.checkpointIndex == index)
+        {
+            player.position = transform.position;
+        }
+    }
 
     private void Awake() 
     {
@@ -23,6 +33,7 @@ public class checkpoint : MonoBehaviour
             if (index > DataContainer.checkpointIndex)
             {
                 DataContainer.checkpointIndex = index;
+                PlayerPrefs.SetInt("checkpointIDX", index);
             }
         }
     }
