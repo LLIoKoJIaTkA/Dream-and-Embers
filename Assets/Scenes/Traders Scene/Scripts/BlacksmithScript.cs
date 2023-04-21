@@ -6,7 +6,7 @@ public class BlacksmithScript : MonoBehaviour
 
     private bool _IsWorkActive;
 
-    void Start()
+    private void Start()
     {
         IterationWindow.SetActive(false);    
     }
