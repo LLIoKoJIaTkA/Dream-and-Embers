@@ -2,39 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class checkpoint : MonoBehaviour
+public class Сheckpoint : MonoBehaviour
 {
-    public Transform player;
-    public int index;
+    public Transform heroPosition;
+    public int CheckPointIndex;
     
     private void Start() 
     {
-        player = GameObject.Find("Hero").transform;
+        heroPosition = GameObject.Find("Hero").transform;
         DataContainer.checkpointIndex = PlayerPrefs.GetInt("checkpointIDX");
-        if (DataContainer.checkpointIndex == index)
+        if (DataContainer.checkpointIndex == CheckPointIndex)
         {
-            player.position = transform.position;
+            heroPosition.position = transform.position;
         }
     }
 
     private void Awake() 
     {
-        player = GameObject.Find("Hero").transform;
-        if (DataContainer.checkpointIndex == index)
+        heroPosition = GameObject.Find("Hero").transform;
+        if (DataContainer.checkpointIndex == CheckPointIndex)
         {
-            player.position = transform.position;
+            heroPosition.position = transform.position;
         }    
     }
 
     private void OnTriggerEnter2D(Collider2D other) 
     {
-        if (other.gameObject.name == "Hero")
+        if ((other.gameObject.name == "Hero") && (CheckPointIndex > DataContainer.checkpointIndex))
         {              
-            if (index > DataContainer.checkpointIndex)
-            {
-                DataContainer.checkpointIndex = index;
-                PlayerPrefs.SetInt("checkpointIDX", index);
-            }
+            DataContainer.checkpointIndex = CheckPointIndex;
+            PlayerPrefs.SetInt("checkpointIDX", CheckPointIndex);
         }
     }
 }

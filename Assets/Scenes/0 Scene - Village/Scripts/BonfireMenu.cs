@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class BonfireMenu : MonoBehaviour
 {
-    [SerializeField] GameObject BonfireWindow;
+    [SerializeField] private GameObject BonfireWindow;
 
-        private bool _IsBonfire;
+    private bool _IsBonfire;
 
     private void Start()
     {
@@ -23,14 +23,12 @@ public class BonfireMenu : MonoBehaviour
 
     void Update()
     {
-        if (_IsBonfire)
+        if (_IsBonfire && Input.GetKey(KeyCode.Escape)) 
         {
-            if (Input.GetKey(KeyCode.Escape))
-            {
-                BonfireWindow.SetActive(false);
-                _IsBonfire = false;
-                Time.timeScale = 1;     //unfreeze time, when hero use bonfire menu
-            }
+            BonfireWindow.SetActive(false);
+            _IsBonfire = false;
+            Time.timeScale = 1;     //unfreeze time, when hero use bonfire menu
+            
         }
     }
 }
