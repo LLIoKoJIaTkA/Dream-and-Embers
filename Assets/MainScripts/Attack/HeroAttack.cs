@@ -9,17 +9,36 @@ namespace MainScripts.Attack
         [SerializeField] private LayerMask _enemies;
         [SerializeField] private Transform _damagePoint;
         private Vector2 _damagePointPosition;
+        private float startAttackAnimation;
+        private float timeAttackAnimation = 0.80f;
+
+        private void FixedUpdate()
+        {
+            if (isAttack)
+                CheckEndAttack();
+        }
+
+        private void CheckEndAttack() 
+        {
+            if (Time.time >= startAttackAnimation + timeAttackAnimation)
+                isAttack = false;
+        }
 
         public void OnSimpleAttack()
         {
-            _damagePointPosition.y = _damagePoint.position.y;
-            _damagePointPosition.x = isFlip
-                ? _damagePoint.position.x - 0.266f * 8f
-                : _damagePoint.position.x;
+            if (!isAttack) { 
+                startAttackAnimation = Time.time;
+                isAttack = true;
 
-            Collider2D[] enemy = Physics2D.OverlapCircleAll(_damagePointPosition, attackRange, _enemies);
-            SimpleAttack(enemy);
-            // need timer to attack, use : Time.fixedTime/Time.frameCount
+                _damagePointPosition.y = _damagePoint.position.y;
+                _damagePointPosition.x = isFlip
+                    ? _damagePoint.position.x - 0.266f * 8f
+                    : _damagePoint.position.x;
+
+                Collider2D[] enemy = Physics2D.OverlapCircleAll(_damagePointPosition, attackRange, _enemies);
+                SimpleAttack(enemy);
+                // need timer to attack, use : Time.fixedTime/Time.frameCount                
+            }
         }
 
         public void SimpleAttack(Collider2D[] enemy)
@@ -37,8 +56,8 @@ namespace MainScripts.Attack
         {
             EnemyStats enemyObj = enemy.gameObject.GetComponent<EnemyStats>();
 
-            enemyObj.HealthPoint -= damage;
-            if (enemyObj.HealthPoint <= 0)
+            enemyObj.healthPoint -= damage;
+            if (enemyObj.healthPoint <= 0)
             {
                 /*state = States.die;
             timeOfStartAnimDeath = Time.fixedTime;

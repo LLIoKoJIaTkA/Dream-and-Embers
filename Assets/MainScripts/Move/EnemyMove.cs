@@ -1,5 +1,9 @@
+using System;
+using MainScripts.Animation;
 using MainScripts.Stats;
+using Scenes._1_Scene___Forest.Scripts.Enemy.FireWizard;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace MainScripts.Move
 {
@@ -8,57 +12,77 @@ namespace MainScripts.Move
         /// <summary>
         /// Спройт enemy
         /// </summary>
-        private SpriteRenderer _sprite;
+        [SerializeField] protected SpriteRenderer _sprite;
 
         /// <summary>
         /// Текущее положение enemy, по индексу
         /// </summary>
-        private int _currentTarget = 0;
+        protected int _currentTarget = 0;
         
         /// <summary>
         /// Определяет видит ли enemy hero
         /// </summary>
-        private bool _isHeroViewed = false;
+        protected bool _isHeroViewed = false;
 
-        private EnemyStats _enemyStats;
-        
         /// <summary>
         /// Массив векторов из 3-х точек(x,y,z) по которым, мониторит enemy.
         /// </summary>
-        [SerializeField] private Vector3[] _positions;
-        
+        [SerializeField] protected Vector3[] _positions;
+
+        private EnemyStats _enemyStats;
+        private MedievalWarriorAnimation _medievalWarriorAnimation;
+
         public void Start()
         {
+            _enemyStats = GetComponent<EnemyStats>();
             _sprite = GetComponent<SpriteRenderer>();
+            _medievalWarriorAnimation = GetComponent<MedievalWarriorAnimation>();
+            _positions = new Vector3[_enemyStats.countPoints];
+
+            if (_enemyStats.isWalkingTheDefaultPathByPoints)
+            {
+                Vector3 currentPosition = transform.position;
+                _setPointByCurrentPosition(currentPosition);
+            }
         }
 
+        private void _setPointByCurrentPosition(Vector3 currentPosition)
+        {
+            for (int i = 0; i < _enemyStats.countPoints; i++)
+            {
+                _positions[i].Set(currentPosition.x + Random.Range(8, 20), currentPosition.y, currentPosition.z);
+            }
+        }
+        
         public void FixedUpdate()
         {
-            MoveByPointsAndMonitoring();
+            MoveByPoints();
         }
 
-        public bool HeroFallIntoTheFieldOfView()
+        public void HeroFallIntoTheFieldOfView()
         {
             Collider2D[] filedOfViewEnemy = Physics2D.OverlapCircleAll(
                 transform.position, 
-                _enemyStats.FieldOfView, 
-                _enemyStats._heroMask
+                _enemyStats.fieldOfView, 
+                _enemyStats.heroMask
             );
             
-            for (int i = 0; i< filedOfViewEnemy.Length; i++)
+            foreach (Collider2D element in filedOfViewEnemy)
             {
-                if(filedOfViewEnemy[i].CompareTag("Player"))
+                if(element.CompareTag("Player"))
                 {
-                    return true;
+                    _medievalWarriorAnimation.ChangeAnimation(MainAnimator.States.Run);
                 }
             }
 
-            return false;
+            _medievalWarriorAnimation.ChangeAnimation(MainAnimator.States.Walk);
         }
 
-        public void MoveByPointsAndMonitoring()
+        // ReSharper disable Unity.PerformanceAnalysis
+        private void MoveByPoints()
         {
-            var finalSpeed = _enemyStats.Speed * _enemyStats.SpeedMultiplier;
+            _checkFieldOfViewOnWall();
+            float finalSpeed = _enemyStats.speed * _enemyStats.speedMultiplier;
             transform.position = Vector3.MoveTowards(
                 transform.position,
                 _positions[_currentTarget],
@@ -69,15 +93,44 @@ namespace MainScripts.Move
             {
                 if (_currentTarget < _positions.Length - 1)
                 {
-                    // TO DO Придумать нормальный разворот
                     _currentTarget++;
+                    _sprite.flipX = _getFlipForMoveByPoints(transform.position, _positions[_currentTarget]);
                 }
                 else
                 {
                     _currentTarget = 0;
                 }
             }
+            
+        }
+        
+        /// <summary>
+        /// Этот метод для поворота можно использовать только для ходьбы по точкам
+        /// Тут все просто, если текущее положение меньше следующей точки, значит двигается вправо
+        /// И нужно flipX поставить false, иначе true
+        /// </summary>
+        private bool _getFlipForMoveByPoints(Vector3 currentPosition, Vector3 nextPoint)
+        {
+            return !(currentPosition.x <= nextPoint.x - 6);//КОСТЫЛь)))
         }
 
+        private void _checkFieldOfViewOnWall()
+        {
+            Collider2D[] filedOfViewWall = Physics2D.OverlapCircleAll(
+                transform.position, 
+                _enemyStats.fieldOfView, 
+                _enemyStats.wallMask
+            );
+            
+            foreach (Collider2D element in filedOfViewWall)
+            {
+                Debug.Log(element);
+                if(element.CompareTag("Wall"))
+                {
+                    Debug.Log(element);
+                }
+            }
+        }
+        
     }
 }
