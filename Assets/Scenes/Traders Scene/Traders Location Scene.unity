@@ -2662,7 +2662,6 @@ GameObject:
   - component: {fileID: 529026744}
   - component: {fileID: 529026743}
   - component: {fileID: 529026746}
-  - component: {fileID: 529026747}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2751,19 +2750,6 @@ MonoBehaviour:
   targetTransform: {fileID: 615809017}
   offcet: {x: 7, y: 4, z: -1}
   smoothing: 3
---- !u!114 &529026747
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 529026742}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a0b861f838b03040848bc4730d85259, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  coinText: {fileID: 72302619}
 --- !u!1 &565768058
 GameObject:
   m_ObjectHideFlags: 0
@@ -3070,7 +3056,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   jumpForce: 15
-  position: {x: 0, y: 0}
+  isFlip: 0
 --- !u!114 &615809013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10706,7 +10692,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2113369007}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d855831b19fea04f9ead57744cc561d, type: 3}
+  m_Script: {fileID: 11500000, guid: 093aee3b374f43b4cbeb949849014b6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   IterationWindow: {fileID: 1005832397}
